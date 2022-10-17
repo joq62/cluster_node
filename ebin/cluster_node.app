@@ -1,0 +1,10 @@
+{application,cluster_node,
+             [{description,"An OTP application"},
+              {vsn,"0.1.0"},
+              {registered,[]},
+              {mod,{cluster_node_app,[]}},
+              {applications,[kernel,stdlib]},
+              {env,[]},
+              {modules,[cluster_node,cluster_node_app,cluster_node_sup]},
+              {licenses,["Apache 2.0"]},
+              {links,[]}]}.
