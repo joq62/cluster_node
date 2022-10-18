@@ -48,6 +48,8 @@ start()->
    
     ok=setup(),
 
+    "test_cluster_cookie"=config_node:cluster_cookie("test_cluster"),
+    
     
     
     
