@@ -58,7 +58,7 @@
 	]).
 
 -export([
-	 start/0,
+	 start/1,
 	 stop/0,
 	 appl_start/1,
 	 ping/0
@@ -104,7 +104,9 @@ intent_pods()->
 
 %% --------------------------------------------------------------------
 
-start()-> gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
+start(AllEnv)->
+    io:format("AllEnv ~p~n",[{AllEnv,?MODULE,?LINE}]),
+    gen_server:start_link({local, ?MODULE}, ?MODULE,AllEnv , []).
 stop()-> gen_server:call(?MODULE, {stop},infinity).
 
 ping()->
@@ -124,8 +126,8 @@ ping()->
 %%          ignore               |
 %%          {stop, Reason}
 %% --------------------------------------------------------------------
-init([]) ->
-    
+init(AllEnv) ->
+    io:format("AllEnv ~p~n",[{AllEnv,?MODULE,?LINE}]),
         
     {ok, #state{
 	    cluster_nodes=[],
